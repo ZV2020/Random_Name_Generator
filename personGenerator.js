@@ -66,6 +66,27 @@ const personGenerator = {
               "id_10": "Андреевич"
           }
       }`,
+    occupationJson: `{  
+        "count": 15,
+        "list": {
+            "id_1": "Водитель",
+            "id_2": "Механик",
+            "id_3": "Учитель",
+            "id_4": "Програмист",
+            "id_5": "Повар",
+            "id_6": "Врач",
+            "id_7": "Предприниматель",
+            "id_8": "Кассир",
+            "id_9": "Бухгалтер",
+            "id_10": "Танцовщик", 
+            "id_11": "Танкист",
+            "id_12": "Тракторист",
+            "id_13": "Агроном",
+            "id_14": "Писатель",
+            "id_15": "Спортсмен",
+            "id_16": "Телеведущий"
+        }
+      }`,  
   
     GENDER_MALE: "Мужчина",
     GENDER_FEMALE: "Женщина",
@@ -105,9 +126,18 @@ const personGenerator = {
         : randomMiddleName;
     },
   
-    randomBirthYear: function () {
-      // TODO
+    randomBirthYear: function (min, max) {
+        min = Math.ceil(1960);
+        max = Math.floor(2011);
+        return Math.floor(Math.random() * (max - min + 1) + min)
     },
+
+    randomOccupation: function () {
+      let randomOccupation = this.randomValue(this.occupationJson);
+      return this.person.gender == this.GENDER_FEMALE
+        ? randomOccupation.replace("ист", "истка") 
+        : randomOccupation;
+    }, 
   
     getPerson: function () {
       this.person = {};
@@ -115,7 +145,8 @@ const personGenerator = {
       this.person.surname = this.randomSurname();
       this.person.firstName = this.randomFirstName();
       this.person.middleName = this.randomMiddleName();
-      // this.person.birthYear = this.randomBirthYear();
+      this.person.birthYear = this.randomBirthYear();
+      this.person.occupation = this.randomOccupation();
       return this.person;
     }
   };
@@ -127,7 +158,8 @@ const personGenerator = {
     document.getElementById("firstNameOutput").innerText = initPerson.firstName;
     document.getElementById("middleNameOutput").innerText = initPerson.middleName;
     document.getElementById("genderOutput").innerText = initPerson.gender;
-    // document.getElementById("birthYearOutput").innerText = initPerson.birthYear;
+    document.getElementById("birthYearOutput").innerText = initPerson.birthYear;
+    document.getElementById("occupationOutput").innerText = initPerson.occupation;
   }
   
   window.addEventListener("load", () => {
@@ -143,6 +175,7 @@ const personGenerator = {
     document.getElementById("firstNameOutput").innerText = "Генерация имени";
     document.getElementById("middleNameOutput").innerText = "Генерация фамилии";
     document.getElementById("genderOutput").innerText = "Генерация пола";
-    // document.getElementById("birthYearOutput").innerText = 'Генерация года рождения';
+    document.getElementById("birthYearOutput").innerText = 'Генерация года рождения';
+    document.getElementById("occupationOutput").innerText = 'Генерация професии';
   });
   

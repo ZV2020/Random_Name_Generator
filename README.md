@@ -24,7 +24,9 @@
 
 ### [HTML](/index.html)
 
-### [Script](/script.js)
+### [Main script](/personGenerator.js)
+
+### [Initial script](/init.js)
 
 ### [CSS](/style.css)
 

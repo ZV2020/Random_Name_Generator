@@ -1,0 +1,43 @@
+
+.card-body {
+    background-color: #009999;
+    color: white;
+    font-size: larger;
+    }
+
+.card-header {
+    background-color:#483D8B;
+    color: white;
+    font-size: larger;
+}
+
+button {
+        background-color: #DC143C;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 2px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 150px;
+      
+}
+
+#reset {
+        background-color: #DC143C;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 2px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 150px;
+}
